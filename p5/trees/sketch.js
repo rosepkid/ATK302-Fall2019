@@ -7,13 +7,13 @@ function setup() {
 
 function draw() {
   background(0, 100, 200);
-  noStroke()
+  noStroke() ;
 
   fill('orange');
   ellipse(284, 374, 100, 100);
 
 
-  fill(255);
+  fill(random(255), random(255), random(255));
   text(mouseX + ',' + mouseY, 20, 20);
 }
 

@@ -10,8 +10,6 @@ function draw() {
   noStroke()
 
   fill('orange');
-
-
   ellipse(284, 374, 100, 100);
 
 

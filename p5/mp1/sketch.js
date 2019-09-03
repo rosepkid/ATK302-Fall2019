@@ -1,6 +1,7 @@
 function setup() {
   // put setup code here
-    createCanvas(windowWidth, windowHeight) ;
+  createCanvas(windowWidth, windowHeight);
+  //createCanvas(800, 800) ;
 }
 
 function draw() {
@@ -9,16 +10,20 @@ function draw() {
 
   if (mouseIsPressed) {
     // the pressed down state
-    ellipse(width/2, height/2, 50, 50);
+    ellipse(width / 2, height / 2, 50, 50);
+    ellipse(width / 2, height / 2 - 50, 50, 50);
 
 
 
   } else {
     // the not-pressed state
-    rect(width/2, height/2, 50, 50);
-    
+    rect(width / 2, height / 2, 50, 50);
+
 
   }
+
+  fill(255);
+  text(mouseX + ", " + mouseY, 20, 20);
 
 }
 

@@ -1,4 +1,5 @@
 var modak;
+var x = 0 ;
 
 
 function setup() {
@@ -13,7 +14,11 @@ function draw() {
   textFont(modak);
 
   fill('red');
-  text("hello world", 20, 150);
+  text("hello world", x, 150);
+  x++ ;
+  if (x > width) {
+    x = 0 ; 
+  }
 
   textSize(30);
   text("from rose", 20, 250);

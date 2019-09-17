@@ -3,7 +3,7 @@ var bunnyPic;
 function setup() {
   // put setup code here
   createCanvas(800, 800);
-  bunnyPic = loadImage("assets/bunny.jpg");
+  bunnyPic = loadImage("assets/bunny.jpg");  // actual filename
 }
 
 function draw() {

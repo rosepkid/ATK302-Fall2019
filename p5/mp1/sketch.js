@@ -18,7 +18,7 @@ function draw() {
   } else {
     // the not-pressed state
     rect(width / 2, height / 2, 50, 50);
-
+    arc()
 
   }
 

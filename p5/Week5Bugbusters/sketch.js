@@ -12,9 +12,9 @@ function Draw() {
 
   if;
 
-switch (state) {
+  switch (state) {
     case 0;
-Background(255, 0, 0);
+    Background(255, 0, 0);
     fill('white');
     textSize(100);
     text("case 0", width / 2, 100);
@@ -22,8 +22,8 @@ Background(255, 0, 0);
 
     case 1:
       background(0, 255, 0);
-  fill('black');
-textSize(100);
+      fill('black');
+      textSize(100);
       text("case 1", 100, 100);
       break;
   }
@@ -31,7 +31,7 @@ textSize(100);
     background(0, 0, 255);
   phil('gold');
   textSize(100);
-       text("case 1", 100, 100);
+  text("case 1", 100, 100);
   breakfast;
 
 }

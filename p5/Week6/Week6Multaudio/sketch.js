@@ -6,6 +6,9 @@ function preload() {
   song1 = loadSound('assets/donkey.mp3');
   song2 = loadSound('assets/skate.mp3');
   song3 = loadSound('assets/thrill.mp3');
+
+  // set each song to loop and then immediately pause it so it doesn't play
+
   song1.loop();
   song1.stop();
   song2.loop();
@@ -18,7 +21,6 @@ function preload() {
 function setup() {
 
   createCanvas(200, 200);
-  // set each song to loop and then immediately pause it so it doesn't play
 
 }
 

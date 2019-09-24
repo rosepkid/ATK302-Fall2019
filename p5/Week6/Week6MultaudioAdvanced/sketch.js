@@ -57,7 +57,7 @@ function draw() {
   }
 
   var level = amplitude.getLevel();
-  var size = map(level, 0, 1, 0, 200);
+  var size = map(level, 0, 1, 0, 200); // level goes 0 to 1, outputs size 0 to 200
   ellipse(width / 2, height / 2, size, size);
 
 }

@@ -1,12 +1,13 @@
 var song1, song2, song3;
 var myState = 0;
-var amp = 0;
-var progressBar = 200;
+
 
 function preload() {
   song1 = loadSound('assets/donkey.mp3');
   song2 = loadSound('assets/skate.mp3');
   song3 = loadSound('assets/thrill.mp3');
+
+  // set each song to loop and then immediately pause it so it doesn't play
 
   song1.loop();
   song1.stop();
@@ -14,12 +15,12 @@ function preload() {
   song2.stop();
   song3.loop();
   song3.stop();
+
 }
 
 function setup() {
 
   createCanvas(200, 200);
-  amplitude = new p5.Amplitude();
 
 }
 
@@ -27,18 +28,21 @@ function draw() {
   background(100);
   switch (myState) {
 
-    case 0:
+    case 0: // trigger the playing, and go immediately to the next state
       song1.play();
-      myState = 1;
+      myState = 1;  // go immediately (the next time) to the next state
       break;
+
 
     case 1:
-      progressBar = map(song1.currentTime(), 0, song1.duration(), 0, 200);
-      rect(10, 10, progressBar, 10);
+    // hang out in here, put some lyrics or pictures or something while the song plays.
+    // put pictures and shapes in here
 
-      break;
+      break;  // we would only leave state 1 with a mouseClick
 
-    case 2:
+
+
+    case 2: // trigger the playing, and go immediately to the next state
       song2.play();
       myState = 3;
       break;
@@ -56,14 +60,13 @@ function draw() {
 
   }
 
-  var level = amplitude.getLevel();
-  var size = map(level, 0, 1, 0, 200); // level goes 0 to 1, outputs size 0 to 200
-  ellipse(width / 2, height / 2, size, size);
 
 }
 
 function mouseReleased() {
   myState++;
+
+  // pause all the songs
   song1.pause();
   song2.pause();
   song3.pause();

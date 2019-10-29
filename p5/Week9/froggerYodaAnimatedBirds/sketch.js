@@ -13,18 +13,18 @@ function setup() {
   birds[0] = loadImage("assets/bird1.png");
   birds[1] = loadImage("assets/bird2.png");
   birds[2] = loadImage("assets/bird3.png");
+  yodaRight = loadImage("assets/yodaRight.gif");
+  yodaLeft = loadImage("assets/yodaLeft.gif");
+  yoda = yodaRight;
 
+  bird = loadImage("assets/bird1.png");
 
   // spawn cars!!!
   for (var i = 0; i < 5; i++) {
     cars.push(new Car());
   }
 
-  yodaRight = loadImage("assets/yodaRight.gif");
-  yodaLeft = loadImage("assets/yodaLeft.gif");
-  yoda = yodaRight;
 
-  bird = loadImage("assets/bird1.png");
 
   frogPos = createVector(width / 2, height - 80);
   rectMode(CENTER);
@@ -94,7 +94,7 @@ function Car() {
   this.r = random(255);
   this.g = random(255);
   this.b = random(255);
-  this.birdNum = floor(random(birds.length - 1));
+  this.birdNum = floor(random(birds.length-1));
   this.timer = 0;
   this.maxTimer = random(10, 30); // use this for timer code
 
@@ -169,6 +169,7 @@ function game() {
     if (cars[i].pos.dist(frogPos) < 50) {
       cars.splice(i, 1);  // take the car out!!
       // if the car's type is a killer type, myState = 3
+
     }
   }
 

@@ -8,6 +8,10 @@ var yPosition = 0;
 var x = 0; // acceleration data
 var y = 0;
 var z = 0;
+var cars = []; // array of something
+var frogPos;
+
+
 
 function setup() {
 
@@ -26,7 +30,7 @@ function setup() {
 
   imageMode(CENTER);
   rectMode(CENTER);
-
+  frogPos = createVector(0, 0);
 }
 
 function draw() {
@@ -76,7 +80,7 @@ function draw() {
   text("atk", width / 2, height / 2);
   frogPos.x = xPosition;
   frogPos.y = yPosition;
-  
+
   for (var i = 0; i < cars.length; i++) {
     cars[i].move();
     cars[i].display();

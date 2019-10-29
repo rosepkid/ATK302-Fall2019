@@ -2,19 +2,8 @@
 // var myCar1;
 // var myCar2;
 
-var cars = []; // array of something
-var frogPos;
 
 
-function draw1() {
-  // put drawing code here
-  background(100);
-
-
-
-
-
-}
 
 function mouseReleased() {
 

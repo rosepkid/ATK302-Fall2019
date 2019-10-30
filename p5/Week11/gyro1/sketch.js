@@ -16,23 +16,23 @@ var pstate2 = false ;
 function preload() {
 //  function requestT () {
 
-      if (typeof(DeviceMotionEvent) !== 'undefined' && typeof(DeviceMotionEvent.requestPermission) === 'function') {
+      if (typeof(DeviceOrientationEvent) !== 'undefined' && typeof(DeviceOrientationEvent.requestPermission) === 'function') {
           alert('enter');
-          DeviceMotionEvent.requestPermission()
+          DeviceOrientationEvent.requestPermission()
           .then(response => {
           alert('resp'+ response);
             if (response == 'granted') {
-              window.addEventListener('devicemotion', (e) => {
+              window.addEventListener('deviceorientation', (e) => {
                 // do something with e
-                x = e.acceleration.x;
-                y = e.acceleration.y;
-                z = e.acceleration.z;
+                alpha = e.alpha;
+                beta = e.beta;
+                gamma = e.gamma;
               })
             }
           })
       .catch(console.error)
       }else {
-          alert('DeviceMotionEvent is not defined');
+          alert('DeviceOrientationEvent is not defined');
       }
 //  }
 }

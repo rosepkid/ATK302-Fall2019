@@ -10,6 +10,32 @@ var y = 0;
 var z = 0;
 var cars = [];
 var frogPos;
+var pstate1 = false ;
+var pstate2 = false ;
+
+function preload() {
+//  function requestT () {
+
+      if (typeof(DeviceMotionEvent) !== 'undefined' && typeof(DeviceMotionEvent.requestPermission) === 'function') {
+          alert('enter');
+          DeviceMotionEvent.requestPermission()
+          .then(response => {
+          alert('resp'+ response);
+            if (response == 'granted') {
+              window.addEventListener('devicemotion', (e) => {
+                // do something with e
+                x = e.acceleration.x;
+                y = e.acceleration.y;
+                z = e.acceleration.z;
+              })
+            }
+          })
+      .catch(console.error)
+      }else {
+          alert('DeviceMotionEvent is not defined');
+      }
+//  }
+}
 
 function setup() {
 
@@ -80,6 +106,8 @@ function draw() {
   textSize(20);
   text("acceleration data:", 25, 125);
   textSize(15);
+  text("permissionState =" + pstate1 + ", " + pstate2, 25, 145) ;
+
   // text("x = " + x, 25, 150); // .toFixed means just show (x) decimal places
   // text("y = " + y, 25, 170);
   // text("z = " + z, 25, 190);

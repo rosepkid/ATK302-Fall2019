@@ -13,39 +13,6 @@
 
 	<script src="../../libs/p5.min.js"></script>
 
-	<script>
-		function askPerm() {
-			// feature detect
-			if (typeof DeviceOrientationEvent.requestPermission === 'function') {
-				DeviceOrientationEvent.requestPermission()
-					.then(permissionState => {
-						if (permissionState === 'granted') {
-							window.addEventListener('deviceorientation', () => {});
-						}
-					})
-					.catch(console.error);
-			} else {
-				// handle regular non iOS 13+ devices
-			}
-
-			// feature detect
-			if (typeof DeviceMotionEvent.requestPermission === 'function') {
-				DeviceMotionEvent.requestPermission()
-					.then(permissionState => {
-						if (permissionState === 'granted') {
-							window.addEventListener('devicemotion', () => {});
-						}
-					})
-					.catch(console.error);
-			} else {
-				// handle regular non iOS 13+ devices
-			}
-
-			console.log("I asked") ;
-		}
-
-		window.onload = askPerm;
-	</script>
 
 	<!-- sketch -->
 	<script language="javascript" src="sketch.js"></script>

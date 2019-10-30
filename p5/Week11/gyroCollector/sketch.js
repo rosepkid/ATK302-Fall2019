@@ -1,36 +1,39 @@
-/* For mobile phones - accesses accelerometer.
-Make sure you turn on orientation lock on your iPhone or Android device. */
 
-var alpha, beta, gamma; // orientation data
+var beta, gamma; // orientation data
 var bunnyImage;
 var xPosition = 0;
 var yPosition = 0;
 var x = 0; // acceleration data
 var y = 0;
 var z = 0;
-var cars = []; // array of something
+var cars = [];
 var frogPos;
+var pstate1 = false ;
+var pstate2 = false ;
+var alreadyTouched = false;
 
-
-
+ 
 function setup() {
 
   createCanvas(windowWidth, windowHeight);
+ // requestT() ;
 
   // initialize accelerometer variables
   alpha = 0;
   beta = 0;
   gamma = 0;
 
-  bunnyImage = loadImage("assets/bunny.jpg");
-
   for (var i = 0; i < 40; i++) {
-    cars.push(new Car(i));
+    cars.push(new Car());
   }
 
+  frogPos = createVector(width / 2, height - 80);
+
+
+  //bunnyImage = loadImage("assets/bunny.jpg");
   imageMode(CENTER);
   rectMode(CENTER);
-  frogPos = createVector(0, 0);
+
 }
 
 function draw() {
@@ -49,10 +52,23 @@ function draw() {
 
   rotate(radians(alpha)); // using alpha in here so it doesn't feel bad
 
-  image(bunnyImage, 0, 0, 500, 500);
-  //  	rect(0, 0, 100, 100) ;
+ // image(bunnyImage, 0, 0, 500, 500);
+
+    	ellipse(0, 0, 200, 200) ;
   pop();
 
+
+  frogPos.x = xPosition;
+  frogPos.y = yPosition;
+
+  // iterate through the car loop
+  for (var i = 0; i < cars.length; i++) {
+    cars[i].display();
+    cars[i].drive();
+    if (cars[i].pos.dist(frogPos) < 50) {
+      cars.splice(i, 1);
+    }
+  }
 
 
   // DECORATIONS
@@ -68,9 +84,11 @@ function draw() {
   textSize(20);
   text("acceleration data:", 25, 125);
   textSize(15);
-  text("x = " + x.toFixed(2), 25, 150); // .toFixed means just show (x) decimal places
-  text("y = " + y.toFixed(2), 25, 170);
-  text("z = " + z.toFixed(4), 25, 190);
+
+
+  text("x = " + x, 25, 150); // .toFixed means just show (x) decimal places
+  text("y = " + y, 25, 170);
+  text("z = " + z, 25, 190);
 
   // MORE DECORATIONS - write that pretty ATK type on top.
   fill('white');
@@ -78,28 +96,6 @@ function draw() {
   textSize(300);
   textAlign(CENTER);
   text("atk", width / 2, height / 2);
-  frogPos.x = xPosition;
-  frogPos.y = yPosition;
-
-  for (var i = 0; i < cars.length; i++) {
-    cars[i].move();
-    cars[i].display();
-
-    var distance = cars[i].pos.dist(frogPos);
-    if (distance < 15) {
-      // do either this
-      cars[i].r = 0;
-      cars[i].b = 0;
-      cars[i].g = 0
-      cars[i].alive = false;
-      cars[i].vel = 0;
-
-      // or this
-      cars.splice(i, 1);
-
-
-    }
-  }
 
 }
 
@@ -120,3 +116,35 @@ window.addEventListener('devicemotion', function(e) {
   y = e.acceleration.y;
   z = e.acceleration.z;
 });
+
+
+
+
+
+// car class!!
+function Car() {
+  // attributes
+  this.pos = createVector(100, 100);
+  this.vel = createVector(random(-5, 5), random(-5, 5));
+  this.r = random(255);
+  this.g = random(255);
+  this.b = random(255);
+
+
+  // methods
+  this.display = function() {
+    fill(this.r, this.g, this.b);
+    rect(this.pos.x, this.pos.y, 100, 50);
+  }
+
+  this.drive = function() {
+    this.pos.add(this.vel);
+
+    if (this.pos.x > width) this.pos.x = 0;
+    if (this.pos.x < 0) this.pos.x = width;
+    if (this.pos.y > height) this.pos.y = 0;
+    if (this.pos.y < 0) this.pos.y = height;
+
+  }
+
+}

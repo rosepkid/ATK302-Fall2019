@@ -1,5 +1,3 @@
-/* For mobile phones - accesses accelerometer.
-Make sure you turn on orientation lock on your iPhone or Android device. */
 
 var alpha, beta, gamma; // orientation data
 var bunnyImage;
@@ -12,30 +10,6 @@ var cars = [];
 var frogPos;
 var pstate1 = false ;
 var pstate2 = false ;
-
-function preload() {
-//  function requestT () {
-
-      if (typeof(DeviceOrientationEvent) !== 'undefined' && typeof(DeviceOrientationEvent.requestPermission) === 'function') {
-          alert('enter');
-          DeviceOrientationEvent.requestPermission()
-          .then(response => {
-          alert('resp'+ response);
-            if (response == 'granted') {
-              window.addEventListener('deviceorientation', (e) => {
-                // do something with e
-                alpha = e.alpha;
-                beta = e.beta;
-                gamma = e.gamma;
-              })
-            }
-          })
-      .catch(console.error)
-      }else {
-          alert('DeviceOrientationEvent is not defined');
-      }
-//  }
-}
 
 function setup() {
 
@@ -53,7 +27,7 @@ function setup() {
   frogPos = createVector(width / 2, height - 80);
 
 
-  bunnyImage = loadImage("assets/bunny.jpg");
+  //bunnyImage = loadImage("assets/bunny.jpg");
   imageMode(CENTER);
   rectMode(CENTER);
 
@@ -75,8 +49,9 @@ function draw() {
 
   rotate(radians(alpha)); // using alpha in here so it doesn't feel bad
 
-  image(bunnyImage, 0, 0, 500, 500);
-  //  	rect(0, 0, 100, 100) ;
+ // image(bunnyImage, 0, 0, 500, 500);
+
+    	ellipse(0, 0, 200, 200) ;
   pop();
 
 

@@ -2,32 +2,28 @@
 <html>
 
 <head>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.9.0/p5.js"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.9.0/addons/p5.dom.min.js"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.9.0/addons/p5.sound.min.js"></script>
+	<meta name="viewport" content="user-scalable=no,initial-scale=1,maximum-scale=1,minimum-scale=1,width=device-width">
 
+	<!-- p5js -->
 
-	<!--    <button   id="request"  style="height: 200px; width: 200px; margin: 50px auto;">Request Permission</button> -->
-
+	<script src="../../libs/p5.min.js"></script>
 
 
 	<script>
-		// if (location.protocol != 'https:') {
-		//  location.href = 'https:' + window.location.href.substring(window.location.protocol.length);
-		// }
-
-		//document.getElementById('request').onclick = requestT;
+		if (location.protocol != 'https:') {
+		 location.href = 'https:' + window.location.href.substring(window.location.protocol.length);
+		}
 
 		function requestT() {
 
 			if (typeof(DeviceMotionEvent) !== 'undefined' && typeof(DeviceMotionEvent.requestPermission) === 'function') {
 			//	alert('enter');
-				DeviceMotionEvent.requestPermission()
-					.then(response => {
+				DeviceMotionEvent.requestPermission().then(response => {
 		//				alert('resp' + response);
 						if (response == 'granted') {
 							window.addEventListener('devicemotion', (e) => {
-								// do something with e -- I do this in the sketch.js
+								// do something with e
+								// -- I do this in the sketch.js
 							})
 						}
 					})
@@ -45,7 +41,6 @@
 
 	<script src="sketch.js"></script>
 
-	<link rel="stylesheet" type="text/css" href="style.css">
 	<meta charset="utf-8" />
 
 </head>

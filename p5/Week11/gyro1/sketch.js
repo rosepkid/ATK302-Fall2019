@@ -95,70 +95,25 @@ function draw() {
 
 // HERE'S THE STUFF YOU NEED FOR READING IN DATA!!!
 
-// // Read in accelerometer data
-// window.addEventListener('deviceorientation', function(e) {
-//   alpha = e.alpha;
-//   beta = e.beta;
-//   gamma = e.gamma;
-// });
-//
-//
-// // accelerometer Data
-// window.addEventListener('devicemotion', function(e) {
-//   // get accelerometer values
-//   x = e.acceleration.x;
-//   y = e.acceleration.y;
-//   z = e.acceleration.z;
-// });
+// Read in accelerometer data
+window.addEventListener('deviceorientation', function(e) {
+  alpha = e.alpha;
+  beta = e.beta;
+  gamma = e.gamma;
+});
 
 
-function touchStarted() {
-  // feature detect
-  console.log("onclick 1");
-  if (typeof DeviceMotionEvent.requestPermission === 'function') {
-    DeviceMotionEvent.requestPermission()
-      .then(permissionState => {
-        if (permissionState === 'granted') {
-          window.addEventListener('devicemotion', function(e) {
-            x = e.acceleration.x;
-            y = e.acceleration.y;
-            z = e.acceleration.z;
-          });
-        }
-      })
-      .catch(console.error);
-  } else {
-    // handle regular non iOS 13+ devices
-    window.addEventListener('devicemotion', function(e) {
-      x = e.acceleration.x;
-      y = e.acceleration.y;
-      z = e.acceleration.z;
-    });
-  }
+// accelerometer Data
+window.addEventListener('devicemotion', function(e) {
+  // get accelerometer values
+  x = e.acceleration.x;
+  y = e.acceleration.y;
+  z = e.acceleration.z;
+});
 
-  // feature detect
-  console.log("onclick 2");
-  if (typeof DeviceOrientationEvent.requestPermission === 'function') {
-    DeviceOrientationEvent.requestPermission()
-      .then(permissionState => {
-        if (permissionState === 'granted') {
-          window.addEventListener('deviceorientation', function(e) {
-            alpha = e.alpha;
-            beta = e.beta;
-            gamma = e.gamma;
-          });
-        }
-      })
-      .catch(console.error);
-  } else {
-    // handle regular non iOS 13+ devices
-    window.addEventListener('deviceorientation', function(e) {
-      alpha = e.alpha;
-      beta = e.beta;
-      gamma = e.gamma;
-    });
-  }
-}
+
+
+
 
 // car class!!
 function Car() {

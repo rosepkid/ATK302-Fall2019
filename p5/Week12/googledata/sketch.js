@@ -13,6 +13,7 @@ function setup() {
   Tabletop.init(settings); // Grab the data from the spreadsheet!
   // End Tabletop initialization stuff
 
+
   // Regular setup code we usually have
   createCanvas(600, 600);
   textAlign(CENTER);
@@ -28,9 +29,9 @@ function gotData(data) {
   console.log(data); // Print the data in the console
 
   // iterate through the array of data and create an object and push it on an array called namesArray
-  // for (let i = 0; i < data.length; i++) {
-  //   namesArray.push(new Circle(data[i].Name, data[i].Shape)) ;
-  //  }
+  for (let i = 0; i < data.length; i++) {
+    namesArray.push(new Circle(data[i].Name, data[i].Shape)) ;
+   }
 
 }
 
@@ -39,9 +40,9 @@ function draw() {
   background('blue');
 
   // // iterate through the namesArray and display the objects!
-  // for (let i = 0 ; i < namesArray.length ; i++) {
-  //   namesArray[i].display() ;
-  // }
+  for (let i = 0 ; i < namesArray.length ; i++) {
+    namesArray[i].display() ;
+  }
 
 }
 

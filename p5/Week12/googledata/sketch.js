@@ -28,10 +28,12 @@ function gotData(data) {
 
   console.log(data); // Print the data in the console
 
+  // here are some hints to push these - data.length is how many lines got read in from the google doc.
+  // data[0].Name is the first name,
+  // data[0].Shape is the first shape.
+
   // iterate through the array of data and create an object and push it on an array called namesArray
-  for (let i = 0; i < data.length; i++) {
-    namesArray.push(new Circle(data[i].Name, data[i].Shape)) ;
-   }
+
 
 }
 
@@ -40,9 +42,7 @@ function draw() {
   background('blue');
 
   // // iterate through the namesArray and display the objects!
-  for (let i = 0 ; i < namesArray.length ; i++) {
-    namesArray[i].display() ;
-  }
+
 
 }
 
@@ -55,7 +55,7 @@ function Circle(myName, myShape) {
 
 
   this.display = function() {
-    ellipse(this.pos.x, this.pos.y, 100, 100);
+// make an ellipse here.
   }
 
 }

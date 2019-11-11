@@ -33,7 +33,7 @@ imagesMap =  {
         "Nutella" : nutellaImg
 } ;
 
-
+// image(imagesMap["Pumpkin Seeds"], 0, 0) ; // the 1st parameter = pumpkinImg
 
 }
 

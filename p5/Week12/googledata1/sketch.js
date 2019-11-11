@@ -3,7 +3,7 @@ var namesArray = [];
 function setup() {
 
   // Tabletop stuff, for getting google spreadsheet data in.
-  let url = '1GtE3eoYVWBv9zMPoyettXzDCEv6qdNGKio_hgEh5duM'; // this is KEY of the URL from the sheet
+  let url = '1FAIpQLSdqIHBefKCaDg9cM9rTfbv9xdWMM9yyRl4iTE4pJHbfVg1zAQ'; // this is KEY of the URL from the sheet
   let settings = {
     key: url, // The url of the published google sheet
     callback: gotData, // A callback for when the data comes in
@@ -48,17 +48,22 @@ function draw() {
 
 
 // my circle class
-function Circle(myName, myShape, myColor) {
+function Circle(myName, myShape) {
   this.pos = createVector(random(width), random(height));
   this.name = myName;
   this.shape = myShape;
 
 
   this.display = function() {
-    // put an ellipse here
-
+ // put an ellipse here
+ if (this.shape == "Circle") {
+    ellipse(this.pos.x, this.pos.y, 100, 100) ;
+  } else {
+    rect(this.pos.x, this.pos.y, 100, 100) ;
 
   }
 
+    text(this.name, this.pos.x, this.pos.y) ;
+  }
 
 }

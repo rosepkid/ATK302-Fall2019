@@ -1,8 +1,8 @@
 var namesArray = [];
-var pumpkin  = 0 ;
-var nutella = 0 ;
-var imagesArray = [] ;
-var pumpkinImg, nutellaImg ;
+var pumpkin = 0;
+var nutella = 0;
+var imagesArray = [];
+var pumpkinImg, nutellaImg;
 var imagesMap;
 
 function setup() {
@@ -23,17 +23,17 @@ function setup() {
   createCanvas(600, 600);
   textAlign(CENTER);
   ellipseMode(CENTER);
-//  rectMode(CENTER);
+  //  rectMode(CENTER);
 
-pumpkinImg = loadImage("assets/p.png") ;
-nutellaImg = loadImage("assets/n.png") ;
+  pumpkinImg = loadImage("assets/p.png");
+  nutellaImg = loadImage("assets/n.png");
 
-imagesMap =  {
-        "Pumpkin Seeds" : pumpkinImg,
-        "Nutella" : nutellaImg
-} ;
+  imagesMap = {
+    "Pumpkin Seeds": pumpkinImg,
+    "Nutella": nutellaImg
+  };
 
-// image(imagesMap["Pumpkin Seeds"], 0, 0) ; // the 1st parameter = pumpkinImg
+  // image(imagesMap["Pumpkin Seeds"], 0, 0) ; // the 1st parameter = pumpkinImg
 
 }
 
@@ -45,10 +45,10 @@ function gotData(data) {
 
   // iterate through the array of data and create an object and push it on an array called namesArray
   for (let i = 0; i < data.length; i++) {
-    namesArray.push(new Circle(data[i].food));
+    namesArray.push(new Circle(data[i].food, imagesMap[data[i].food]));
 
-    if (data[i].food == "Pumpkin Seeds") pumpkin++ ;
-    if (data[i].food == "Nutella") nutella++ ;
+    if (data[i].food == "Pumpkin Seeds") pumpkin++;
+    if (data[i].food == "Nutella") nutella++;
 
   }
 
@@ -61,26 +61,26 @@ function draw() {
   // // iterate through the namesArray and display the objects!
   for (let i = 0; i < namesArray.length; i++) {
     namesArray[i].display();
-      namesArray[i].drive();
+    namesArray[i].drive();
   }
 
-  textSize(14) ;
-  rect(50, height-50, 20, -pumpkin*10) ;
-  text("pumpkin", 50, height-20) ;
+  textSize(14);
+  rect(50, height - 50, 20, -pumpkin * 10);
+  text("pumpkin", 50, height - 20);
 
-  rect(100, height-50, 20, -nutella*10) ;
-  text("nutella", 100, height-20) ;
+  rect(100, height - 50, 20, -nutella * 10);
+  text("nutella", 100, height - 20);
 
 }
 
 
 // my circle class
-function Circle(myFood) {
+function Circle(myFood, myPic) {
   this.pos = createVector(random(width), random(height));
   this.food = myFood;
-  this.vel = random(3) ;
-  this.mySize = random(24, 60) ;
-
+  this.vel = random(3);
+  this.mySize = random(24, 60);
+  this.pic = myPic;
 
   this.display = function() {
 
@@ -90,14 +90,16 @@ function Circle(myFood) {
     textSize(this.mySize);
     fill('white');
 
-  //  text(this.food, this.pos.x, this.pos.y);
-  image(imagesMap[this.food], this.pos.x, this.pos.y, 100, 100) ;
+    //  text(this.food, this.pos.x, this.pos.y);
+    //  image(imagesMap[this.food], this.pos.x, this.pos.y, 100, 100) ;
+
+    image(this.pic, this.pos.x, this.pos.y, 100, 100);
 
   }
 
   this.drive = function() {
-    this.pos.x = this.pos.x + this.vel ;
-    if (this.pos.x > width) this.pos.x = -20 ;
+    this.pos.x = this.pos.x + this.vel;
+    if (this.pos.x > width) this.pos.x = -20;
   }
 
 }

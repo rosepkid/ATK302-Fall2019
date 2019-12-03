@@ -12,7 +12,7 @@ var pstate1 = false ;
 var pstate2 = false ;
 var alreadyTouched = false;
 
- 
+
 function setup() {
 
   createCanvas(windowWidth, windowHeight);

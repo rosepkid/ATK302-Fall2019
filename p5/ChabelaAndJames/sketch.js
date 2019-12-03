@@ -17,11 +17,17 @@ var rq = 0;
 var timer = 0;
 var randomAnswer = 0;
 var correctLineTop = 175; // this is the top-most of where the correct answer is and it gets reset in the question display
+var imagesArray = [] ;
 
 function preload() {
   myLogo = loadImage("assets/thetquizlogo-02.png");
   capriola = loadFont("assets/Capriola.ttf");
   corben = loadFont("assets/Corben.ttf");
+
+
+//  imagesArray[x] = loadImage(x+".png") ;
+
+
 }
 
 function setup() {

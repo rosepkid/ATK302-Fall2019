@@ -46,9 +46,9 @@ function draw() {
   textSize(15);
 
 
-  text("x = " + x.toFixed(2), 25, 150); // .toFixed means just show (x) decimal places
-  text("y = " + y.toFixed(2), 25, 170);
-  text("z = " + z.toFixed(2), 25, 190);
+  text("x = " + x.toFixed(0), 25, 150); // .toFixed means just show (x) decimal places
+  text("y = " + y.toFixed(0), 25, 170);
+  text("z = " + z.toFixed(0), 25, 190);
 
 }
 

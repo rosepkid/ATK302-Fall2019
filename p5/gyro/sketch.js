@@ -1,15 +1,14 @@
-
 var alpha, beta, gamma; // orientation data
 var x = 0; // acceleration data
 var y = 0;
 var z = 0;
 
-var myState = 0 ;
+var myState = 0;
 
 function setup() {
 
   createCanvas(windowWidth, windowHeight);
- // requestT() ;
+  // requestT() ;
 
   // initialize accelerometer variables
   alpha = 0;
@@ -28,48 +27,56 @@ function draw() {
   // alpha is the direction! It starts at 0 when you load the page. If you turn to the left, it goes up,
   // all the way from 1 to 360. If you turn to the right, you'll start at 360 and go down.
 
-if ((alpha > 0) && (alpha < 15)) {  // degrees for 1st song; you can change these!
-  myState = 1 ;
-}
+  if ((alpha > 0) && (alpha < 15) && (myState != 2)) { // degrees for 1st song; you can change these!
+    myState = 1;
+  }
 
-if ((alpha > 16) && (alpha < 30)) {  // degrees for 2nd song
-  myState = 3 ; // we have to skip a state because each state needs to go to a "hangout" state
-}
+  if ((alpha > 16) && (alpha < 30) && (myState != 4)) { // degrees for 2nd song
+    myState = 3; // we have to skip a state because each state needs to go to a "hangout" state
+  }
 
-if ((alpha > 31) && (alpha < 45)) {  // degrees for 2nd song
-  myState = 5 ; // we have to skip a state because each state needs to go to a "hangout" state
-}
+  if ((alpha > 31) && (alpha < 45) && (myState != 6)) { // degrees for 2nd song
+    myState = 5; // we have to skip a state because each state needs to go to a "hangout" state
+  }
 
-// add the rest to 360...
+  // add the rest to 360...
 
 
-// The States of Playing Music
+  // The States of Playing Music
 
-  switch(myState) {
-// states for song 1
-      case 1 : // this is for the first song.
+  switch (myState) {
+    // states for song 1
+    case 1: // this is for the first song.
       // song1.play() ;
-      myState = 2 ; // Don't hang out here in the "needle-drop" state!!!
-      break ;
-
-      case 2 :
-      // put some pretty images here or something, for song1
-      text("playing song 1", 100, 150) ;
-      break ;
-
-// states for song 2
-      case 3: // this is for the 2nd song.
-      // song2.play() ;
-      myState = 4 ; // go directly to the next state so we don't keep needle-dropping!
+      myState = 2; // Don't hang out here in the "needle-drop" state!!!
       break;
 
-      case 4:
+    case 2:
+      // put some pretty images here or something, for song1
+      text("playing song 1", 100, 150);
+      break;
+
+      // states for song 2
+    case 3: // this is for the 2nd song.
+      // song2.play() ;
+      myState = 4; // go directly to the next state so we don't keep needle-dropping!
+      break;
+
+    case 4:
       // pretty stuff to hang out here.
-          text("playing song 2", 100, 150) ;
-      break ;
+      text("playing song 2", 100, 150);
+      break;
 
-// states for song 3... you get the idea!
+      // states for song 2
+    case 5:
+      // song2.play() ;
+      myState = 6;
+      break;
 
+    case 6:
+      // pretty stuff to hang out here.
+      text("playing song 3", 100, 150);
+      break;
 
   }
 
@@ -93,6 +100,7 @@ if ((alpha > 31) && (alpha < 45)) {  // degrees for 2nd song
   text("x = " + x.toFixed(0), 25, 150); // .toFixed means just show (x) decimal places
   text("y = " + y.toFixed(0), 25, 170);
   text("z = " + z.toFixed(0), 25, 190);
+  text("myState = " + myState, 25, 210);
 
 }
 

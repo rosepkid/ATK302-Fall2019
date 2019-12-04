@@ -54,6 +54,7 @@ if ((alpha > 31) && (alpha < 45)) {  // degrees for 2nd song
 
       case 2 :
       // put some pretty images here or something, for song1
+      text("playing song 1", 100, 150) ;
       break ;
 
 // states for song 2
@@ -64,6 +65,7 @@ if ((alpha > 31) && (alpha < 45)) {  // degrees for 2nd song
 
       case 4:
       // pretty stuff to hang out here.
+          text("playing song 2", 100, 150) ;
       break ;
 
 // states for song 3... you get the idea!

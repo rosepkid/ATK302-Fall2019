@@ -38,9 +38,9 @@ function draw() {
   fill('black');
   text("orientation data:", 25, 25);
   textSize(15);
-  text("alpha: " + alpha.toFixed(2), 25, 50);
-  text("beta: " + beta.toFixed(2), 25, 70);
-  text("gamma: " + gamma.toFixed(2), 25, 90);
+  text("alpha: " + alpha.toFixed(0), 25, 50);
+  text("beta: " + beta.toFixed(0), 25, 70);
+  text("gamma: " + gamma.toFixed(0), 25, 90);
   textSize(20);
   text("acceleration data:", 25, 125);
   textSize(15);

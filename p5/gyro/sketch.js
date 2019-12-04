@@ -4,6 +4,8 @@ var x = 0; // acceleration data
 var y = 0;
 var z = 0;
 
+var myState = 0 ;
+
 function setup() {
 
   createCanvas(windowWidth, windowHeight);
@@ -23,11 +25,51 @@ function draw() {
 
   background('#c6f5ff'); // light blue
 
-  // the map command !!!!
-  // takes your variable and maps it from range 1 to range 2
-  // map(yourVar, range1_x, range1_y, range2_x, range2_y) ;
-  xPosition = map(gamma, -60, 60, 0, width);
-  yPosition = map(beta, -30, 30, 0, height);
+  // alpha is the direction! It starts at 0 when you load the page. If you turn to the left, it goes up,
+  // all the way from 1 to 360. If you turn to the right, you'll start at 360 and go down.
+
+if ((alpha > 0) && (alpha < 15)) {  // degrees for 1st song; you can change these!
+  myState = 1 ;
+}
+
+if ((alpha > 16) && (alpha < 30)) {  // degrees for 2nd song
+  myState = 3 ; // we have to skip a state because each state needs to go to a "hangout" state
+}
+
+if ((alpha > 31) && (alpha < 45)) {  // degrees for 2nd song
+  myState = 5 ; // we have to skip a state because each state needs to go to a "hangout" state
+}
+
+// add the rest to 360...
+
+
+// The States of Playing Music
+
+  switch(myState) {
+// states for song 1
+      case 1 : // this is for the first song.
+      // song1.play() ;
+      myState = 2 ; // Don't hang out here in the "needle-drop" state!!!
+      break ;
+
+      case 2 :
+      // put some pretty images here or something, for song1
+      break ;
+
+// states for song 2
+      case 3: // this is for the 2nd song.
+      // song2.play() ;
+      myState = 4 ; // go directly to the next state so we don't keep needle-dropping!
+      break;
+
+      case 4:
+      // pretty stuff to hang out here.
+      break ;
+
+// states for song 3... you get the idea!
+
+
+  }
 
 
 

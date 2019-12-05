@@ -1,8 +1,8 @@
 // var direction = 0;
 var mariah;
-var knives ;
-var caligirls ;
-var jb ;
+var knives;
+var caligirls;
+var jb;
 
 var wolf;
 var sigh;
@@ -19,15 +19,15 @@ function preload() {
   // up = loadImage('assets/OTR.jpg');
   // down = loadImage('assets/KAP.jpg');
 
-  //   wolf = loadSound('Assets/wolfhowl.mp3');
-          wolf = loadSound('Assets/lazerhawk.mp3');
-     sigh = loadSound('Assets/sigh.mp3');
-  // knives = loadSound('Assets/knives.mp3');
-  // caligirls = loadSound('Assets/cal.mp3');
-//  tunak = loadSound('Assets/daler-mehndi-tunak-tunak-tun-video-youtubemp3free.org.mp3');
+  wolf = loadSound('Assets/wolfhowl.mp3');
+
+  sigh = loadSound('Assets/sigh.mp3');
+  knives = loadSound('Assets/knives.mp3');
+  caligirls = loadSound('Assets/cal.mp3');
+  //  tunak = loadSound('Assets/daler-mehndi-tunak-tunak-tun-video-youtubemp3free.org.mp3');
   // miku = loadSound('Assets/hatsune-miku-ievan-polkka-project-diva-theatre-hd-youtubemp3free.org.mp3');
   // anthem = loadSound('Assets/hymne-natonal-du-canada-en-franais-youtubemp3free.org.mp3');
-   // jb = loadSound('Assets/JBD.mp3');
+  // jb = loadSound('Assets/JBD.mp3');
 
   // bop = loadSound('Assets/kidz-bop-kids-old-town-road-youtubemp3free.org.mp3');
   // christmas = loadSound('Assets/mariah-carey-all-i-want-for-christmas-is-you-lyrics-youtubemp3free.org.mp3');
@@ -49,8 +49,8 @@ function preload() {
 
 //   bop.loop();
 //   bop.stop();
-  // christmas.loop();
-  // christmas.stop();
+// christmas.loop();
+// christmas.stop();
 //   chum.loop();
 //   chum.stop();
 //
@@ -61,6 +61,8 @@ function pauseTheMusic() {
   // caligirls.pause() ;
   wolf.pause();
   sigh.pause();
+  knives.pause();
+  caligirls.pause();
 
 }
 
@@ -86,6 +88,10 @@ function setup() {
   wolf.pause();
   sigh.loop();
   sigh.pause();
+  knives.loop();
+  knives.pause();
+  caligirls.loop();
+  caligirls.pause();
   // requestT() ;
 
   // initialize accelerometer variables
@@ -155,10 +161,10 @@ function draw() {
   switch (myState) {
     // states for song 1
     case 1: // this is for the first song.
-    //north
+      //north
       // christmas.play() ;
-      pauseTheMusic() ;
-      wolf.play() ;
+      pauseTheMusic();
+      wolf.play();
       myState = 2; // Don't hang out here in the "needle-drop" state!!!
       break;
 
@@ -172,8 +178,8 @@ function draw() {
     case 3: // this is for the 2nd song.
       //northwest
       // song2.play() ;
-        pauseTheMusic() ;
-  wolf.play() ;
+      pauseTheMusic();
+      knives.play();
       myState = 4; // go directly to the next state so we don't keep needle-dropping!
       break;
 
@@ -186,8 +192,8 @@ function draw() {
       // states for song 2
     case 5:
       // song2.play() ;
-        pauseTheMusic() ;
-      sigh.play() ;
+      pauseTheMusic();
+      sigh.play();
       myState = 6;
       break;
 
@@ -200,8 +206,8 @@ function draw() {
       // states for song 2
     case 7:
       // song2.play() ;
-        pauseTheMusic() ;
-        wolf.play() ;
+      pauseTheMusic();
+      caligirls.play();
       myState = 8;
       break;
 
@@ -215,8 +221,8 @@ function draw() {
     case 9:
       // song2.play() ;
       // jb.play() ;
-        pauseTheMusic() ; 
-        wolf.play() ;
+      pauseTheMusic();
+      wolf.play();
       myState = 10;
       break;
 
@@ -228,6 +234,8 @@ function draw() {
       // states for song 2
     case 11:
       // song2.play() ;
+      pauseTheMusic();
+      wolf.play();
       myState = 12;
       break;
 
@@ -239,6 +247,8 @@ function draw() {
       // states for song 2
     case 13:
       // song2.play() ;
+      pauseTheMusic();
+      knives.play();
       myState = 14;
       break;
 
@@ -249,13 +259,15 @@ function draw() {
 
     case 15:
       //songwhatever.play();
+      pauseTheMusic();
+      caligirls.play();
       myState = 16;
       break;
 
     case 16:
-    //pretty STUFF
-    text("playing song 8", 100, 150);
-    break;
+      //pretty STUFF
+      text("playing song 8", 100, 150);
+      break;
   }
 
 

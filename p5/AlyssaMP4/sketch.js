@@ -157,6 +157,7 @@ function draw() {
     case 1: // this is for the first song.
     //north
       // christmas.play() ;
+      pauseTheMusic() ;
       wolf.play() ;
       myState = 2; // Don't hang out here in the "needle-drop" state!!!
       break;
@@ -171,6 +172,7 @@ function draw() {
     case 3: // this is for the 2nd song.
       //northwest
       // song2.play() ;
+        pauseTheMusic() ;
   wolf.play() ;
       myState = 4; // go directly to the next state so we don't keep needle-dropping!
       break;
@@ -184,6 +186,7 @@ function draw() {
       // states for song 2
     case 5:
       // song2.play() ;
+        pauseTheMusic() ;
       sigh.play() ;
       myState = 6;
       break;
@@ -197,6 +200,7 @@ function draw() {
       // states for song 2
     case 7:
       // song2.play() ;
+        pauseTheMusic() ;
         wolf.play() ;
       myState = 8;
       break;
@@ -211,6 +215,7 @@ function draw() {
     case 9:
       // song2.play() ;
       // jb.play() ;
+        pauseTheMusic() ; 
         wolf.play() ;
       myState = 10;
       break;
@@ -294,3 +299,8 @@ window.addEventListener('devicemotion', function(e) {
   y = e.acceleration.y;
   z = e.acceleration.z;
 });
+
+// you need to click the screen before the mic input will work.
+function touchStarted() {
+  getAudioContext().resume();
+}

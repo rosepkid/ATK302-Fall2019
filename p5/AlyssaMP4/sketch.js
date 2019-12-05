@@ -19,7 +19,8 @@ function preload() {
   // up = loadImage('assets/OTR.jpg');
   // down = loadImage('assets/KAP.jpg');
 
-     wolf = loadSound('Assets/wolfhowl.mp3');
+  //   wolf = loadSound('Assets/wolfhowl.mp3');
+          wolf = loadSound('Assets/lazerhawk.mp3');
      sigh = loadSound('Assets/sigh.mp3');
   // knives = loadSound('Assets/knives.mp3');
   // caligirls = loadSound('Assets/cal.mp3');
@@ -99,7 +100,7 @@ function setup() {
 
 function draw() {
 
-  background('green'); // light blue
+  background('yellow');
 
   // alpha is the direction! It starts at 0 when you load the page. If you turn to the left, it goes up,
   // all the way from 1 to 360. If you turn to the right, you'll start at 360 and go down.

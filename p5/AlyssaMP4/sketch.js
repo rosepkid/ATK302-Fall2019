@@ -56,14 +56,10 @@ function preload() {
 //
 
 function pauseTheMusic() {
-  // jb.pause() ;
-  // knives.pause() ;
-  // caligirls.pause() ;
   wolf.pause();
   sigh.pause();
   knives.pause();
   caligirls.pause();
-
 }
 
 var alpha, beta, gamma; // orientation data

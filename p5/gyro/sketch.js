@@ -8,23 +8,23 @@ var myState = 0;
 function setup() {
 
   createCanvas(windowWidth, windowHeight);
-  // requestT() ;
 
   // initialize accelerometer variables
   alpha = 0;
   beta = 0;
   gamma = 0;
 
-  imageMode(CENTER);
-  rectMode(CENTER);
+
 
 }
 
 function draw() {
-  background('white') ;
+  background('yellow') ;
 
-  // DECORATIONS
-  // Just a bunch of text commands to display data coming in from addEventListeners
+
+
+
+  // Just a bunch of text commands to display data coming in from gyroscope
   textAlign(LEFT);
   textSize(20);
   fill('black');
@@ -42,11 +42,12 @@ function draw() {
   text("x = " + x.toFixed(0), 25, 150); // .toFixed(x) means just show x decimal places
   text("y = " + y.toFixed(0), 25, 170);
   text("z = " + z.toFixed(0), 25, 190);
-  text("myState = " + myState, 25, 210);
+//  text("myState = " + myState, 25, 210);
 
 }
 
 // HERE'S THE STUFF YOU NEED FOR READING IN DATA!!!
+// DON'T MESS WITH IT.
 
 // Read in accelerometer data
 window.addEventListener('deviceorientation', function(e) {
@@ -63,3 +64,10 @@ window.addEventListener('devicemotion', function(e) {
   y = e.acceleration.y;
   z = e.acceleration.z;
 });
+
+
+// YOU NEED THIS FOR SOUND! IF YOU'RE NOT SURE, LEAVE IT IN.
+// you need to click the screen before the mic input will work.
+function touchStarted() {
+  getAudioContext().resume();
+}

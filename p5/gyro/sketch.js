@@ -21,13 +21,14 @@ function setup() {
 }
 
 function draw() {
-
+  background('white') ;
 
   // DECORATIONS
   // Just a bunch of text commands to display data coming in from addEventListeners
   textAlign(LEFT);
   textSize(20);
   fill('black');
+
   text("orientation data:", 25, 25);
   textSize(15);
   text("alpha: " + alpha.toFixed(0), 25, 50);  // direction around you

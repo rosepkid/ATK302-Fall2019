@@ -11,7 +11,7 @@ function setup() {
   createCanvas(windowWidth, windowHeight);
   imageMode(CENTER);
   bart = loadImage("assets/barttitle.jpg");
-  bart1 = loadImage("assets/bart.jpg");
+  bart1 = loadImage("assets/bart1.jpg");
   bart2 = loadImage("assets/bartthesequel.jpg");
   bart3 = loadImage("assets/bartsgettingworse.jpg");
   bart4 = loadImage("assets/bartbutinhell.jpg");

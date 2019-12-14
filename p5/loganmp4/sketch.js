@@ -19,7 +19,8 @@ var z = 0;
 
 function setup() {
   frameRate(60);
-  createCanvas(800, 800);
+//  createCanvas(800, 800);
+  createCanvas(windowWidth, windowHeight);
 
   // initialize accelerometer variables
   alpha = 0;

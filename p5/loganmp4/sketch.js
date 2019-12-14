@@ -132,14 +132,17 @@ function Car() {
 function mouseReleased() {
   switch (myState) {
     case 0: // splash screen
+    startMillis = millis();
       myState = 1;
       break;
 
     case 2: // the win state
+      resetNewGame();
       myState = 0;
       break;
 
     case 3: // the lose state
+      resetNewGame();
       myState = 0;
       break;
 
@@ -208,14 +211,13 @@ function gameState() {
 
   // image(bunnyImage, 0, 0, 500, 500);
 
-  ellipse(0, 0, 200, 200);
-  image(SpaceShip, frogPos.x, frogPos.y);
+//  ellipse(0, 0, 200, 200);
+  image(SpaceShip, 0, 0);
   pop();
 
 
   frogPos.x = xPosition;
   frogPos.y = yPosition;
-
 
   // // draw the frog
   // fill('green');
@@ -229,6 +231,7 @@ function gameState() {
   if (bugsEaten >= 25) {
     myState = 2;
   }
+
   fill(255, 252, 71);
   textSize(20);
   text('Bugs eaten: ' + bugsEaten, 600, 780)
@@ -255,7 +258,7 @@ function winState() {
   text('Pres "Esc" to return to Menu', 260, 430);
   fill(255, 0, 0);
 
-  resetNewGame();
+
 }
 
 function loseState() {
@@ -267,7 +270,7 @@ function loseState() {
   fill(0, 255, 0);
   textSize(20);
   text('Pres "Esc" to return to Menu', 253, 450);
-  resetNewGame();
+
 }
 
 function resetNewGame() {

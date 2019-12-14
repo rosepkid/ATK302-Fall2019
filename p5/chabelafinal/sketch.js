@@ -172,7 +172,6 @@ function draw() {
       break;
 
 
-
     case 100:
       // go to a random state!
 

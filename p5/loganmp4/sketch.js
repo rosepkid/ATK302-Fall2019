@@ -19,8 +19,8 @@ var z = 0;
 
 function setup() {
   frameRate(60);
-//  createCanvas(800, 800);
-  createCanvas(displayWidth, displayHeight);
+  //  createCanvas(800, 800);
+  createCanvas(windowWidth, windowHeight);
 
   // initialize accelerometer variables
   alpha = 0;
@@ -41,6 +41,7 @@ function setup() {
   rectMode(CENTER);
   ellipseMode(CENTER);
   textAlign(CENTER);
+  imageMode(CENTER);
 }
 
 
@@ -134,7 +135,7 @@ function Car() {
 function mouseReleased() {
   switch (myState) {
     case 0: // splash screen
-    startMillis = millis();
+      startMillis = millis();
       myState = 1;
       break;
 
@@ -171,18 +172,18 @@ function splashScreen() {
   background(255, 0, 0);
   //textFont("Hallows", 40);
   textSize(50);
-  text('SPACEBUGZ', width/2, 145)
-  rect(400, 400, 450, 110)
+  text('SPACEBUGZ', width / 2, 145)
+  rect(width / 2, 400, 450, 110)
   fill(255, 252, 71)
   textSize(25);
-  text('Press ENTER to Play', width/2, 400);
+  text('Press ENTER to Play', width / 2, 400);
   textSize(15);
-  text('Eat 25 bugs in 10 seconds to win!', width/2, 430);
+  text('Eat 25 bugs in 10 seconds to win!', width / 2, 430);
   fill(0);
-  image(Bug1, width/2-100, 200, 170, 100);
-  image(Bug2, width/2, 200, 170, 100);
-  image(Bug3, width/2+100, 200, 170, 100);
-  image(SpaceShip, width/2, 500, 190, 200);
+  image(Bug1, width / 2 - 100, 250, 170, 100);
+  image(Bug2, width / 2, 250, 170, 100);
+  image(Bug3, width / 2 + 100, 250, 170, 100);
+  image(SpaceShip, width / 2, 580, 190, 200);
 
 }
 
@@ -198,12 +199,19 @@ function gameState() {
     }
   }
 
+  if ((gamma != 0) && (beta != 0)) {
+    xPosition = map(gamma, -40, 40, 0, width);
+    yPosition = map(beta, 20, 50, 0, height - 50);
+    frogPos.x = xPosition;
+    frogPos.y = yPosition;
+  } else {
+    // // draw the frog
+    // fill('green');
+    // image(SpaceShip, frogPos.x, frogPos.y);
+    checkForKeys();
+  }
+
   // Draw the frog from gyroscope
-  // the map command !!!!
-  // takes your variable and maps it from range 1 to range 2
-  // map(yourVar, range1_x, range1_y, range2_x, range2_y) ;
-  xPosition = map(gamma, -40, 40, 0, width);
-  yPosition = map(beta, 20, 50, 0, height-50);
 
   push(); // before you use translate, rotate, or scale commands, push and then pop after
 
@@ -213,18 +221,11 @@ function gameState() {
 
   // image(bunnyImage, 0, 0, 500, 500);
 
-//  ellipse(0, 0, 200, 200);
+  //  ellipse(0, 0, 200, 200);
   image(SpaceShip, 0, 0);
   pop();
 
 
-  frogPos.x = xPosition;
-  frogPos.y = yPosition;
-
-  // // draw the frog
-  // fill('green');
-  // image(SpaceShip, frogPos.x, frogPos.y);
-  checkForKeys();
 
   if (millis() >= startMillis + myTimer) {
     myState = 3;
@@ -257,10 +258,10 @@ function winState() {
   rect(400, 400, 1100, 100);
   fill(255, 252, 71);
   textSize(50);
-  text('YOU WIN!', width/2, 400);
+  text('YOU WIN!', width / 2, 400);
   fill(255, 252, 71);
   textSize(20);
-  text('Pres "Esc" to return to Menu', width/2, 430, width-50, height-100);
+  text('Pres "Esc" to return to Menu', width / 2, 430, width - 50, height - 100);
   fill(255, 0, 0);
 
 
@@ -271,10 +272,10 @@ function loseState() {
 
   fill(0, 255, 0);
   textSize(50);
-  text('YOU LOSE', width/2, 400);
+  text('YOU LOSE', width / 2, 400);
   fill(0, 255, 0);
   textSize(20);
-  text('Pres "Esc" to return to Menu', width/2, 430, width-50, height-100);
+  text('Pres "Esc" to return to Menu', width / 2, 430, width - 50, height - 100);
 
 }
 
@@ -287,5 +288,5 @@ function resetNewGame() {
     cars.push(new Car());
   }
 
-  frogPos = createVector(width / 2, height - 80);
+  frogPos = createVector(width / 2, height / 2);
 }

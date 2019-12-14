@@ -81,7 +81,6 @@ window.addEventListener('devicemotion', function(e) {
   y = e.acceleration.y;
   z = e.acceleration.z;
 });
-}
 
 // car class!!
 function Car() {

@@ -160,14 +160,14 @@ function checkForKeys() {
   if (keyIsDown(DOWN_ARROW)) frogPos.y = frogPos.y + 5;
 }
 
-function keyPressed() {
-  if (keyCode === ENTER) {
-    startMillis = millis();
-    myState = 1;
-  } else if (keyCode === ESCAPE) {
-    myState = 0;
-  }
-}
+// function keyPressed() {
+//   if (keyCode === ENTER) {
+//     startMillis = millis();
+//     myState = 1;
+//   } else if (keyCode === ESCAPE) {
+//     myState = 0;
+//   }
+// }
 
 function splashScreen() {
   background(255, 0, 0);
@@ -177,7 +177,7 @@ function splashScreen() {
   rect(width / 2, 400, 450, 110)
   fill(255, 252, 71)
   textSize(25);
-  text('Press ENTER to Play', width / 2, 400);
+  text('Click to Play', width / 2, 400);
   textSize(15);
   text('Eat 25 bugs in 10 seconds to win!', width / 2, 430);
   fill(0);
@@ -262,7 +262,7 @@ function winState() {
   text('YOU WIN!', width / 2, 400);
   fill(255, 252, 71);
   textSize(20);
-  text('Pres "Esc" to return to Menu', width / 2, 430, width - 50, height - 100);
+  text('Click to return to Menu', width / 2, 430, width - 50, height - 100);
   fill(255, 0, 0);
 
 
@@ -276,7 +276,7 @@ function loseState() {
   text('YOU LOSE', width / 2, 400);
   fill(0, 255, 0);
   textSize(20);
-  text('Pres "Esc" to return to Menu', width / 2, 430, width - 50, height - 100);
+  text('Click to return to Menu', width / 2, 430, width - 50, height - 100);
 
 }
 

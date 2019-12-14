@@ -201,14 +201,14 @@ function gameState() {
   // the map command !!!!
   // takes your variable and maps it from range 1 to range 2
   // map(yourVar, range1_x, range1_y, range2_x, range2_y) ;
-  xPosition = map(gamma, -60, 60, 0, width);
+  xPosition = map(gamma, -40, 40, 0, width);
   yPosition = map(beta, 20, 50, 0, height-50);
 
   push(); // before you use translate, rotate, or scale commands, push and then pop after
 
   translate(xPosition, yPosition); // move everything over by x, y
 
-//  rotate(radians(alpha)); // using alpha in here so it doesn't feel bad
+  rotate(radians(xPosition)); // using alpha in here so it doesn't feel bad
 
   // image(bunnyImage, 0, 0, 500, 500);
 

@@ -132,7 +132,8 @@ function Car() {
 
 }
 
-function mouseReleased() {
+//function mouseReleased() {
+function touchStarted() {
   switch (myState) {
     case 0: // splash screen
       startMillis = millis();

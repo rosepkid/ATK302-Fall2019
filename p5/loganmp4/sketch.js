@@ -167,7 +167,7 @@ function splashScreen() {
   background(255, 0, 0);
   //textFont("Hallows", 40);
   textSize(70);
-  text('SPACEBUGZ', 200, 145)
+  text('SPACEBUGZ1', 200, 145)
   rect(400, 400, 450, 110)
   fill(255, 252, 71)
   textSize(45);

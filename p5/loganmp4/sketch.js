@@ -150,6 +150,7 @@ function touchStarted() {
       myState = 0;
       break;
 
+      return(false) ;
   }
 }
 

@@ -40,6 +40,7 @@ function setup() {
   frogPos = createVector(width / 2, height - 80);
   rectMode(CENTER);
   ellipseMode(CENTER);
+  textAlign(CENTER);
 }
 
 
@@ -169,19 +170,19 @@ function keyPressed() {
 function splashScreen() {
   background(255, 0, 0);
   //textFont("Hallows", 40);
-  textSize(70);
-  text('SPACEBUGZ', 200, 145)
+  textSize(50);
+  text('SPACEBUGZ', width/2, 145)
   rect(400, 400, 450, 110)
   fill(255, 252, 71)
-  textSize(45);
-  text('Press ENTER to Play', 185, 400);
-  textSize(20);
-  text('Eat 25 bugs in 10 seconds to win!', 255, 430);
+  textSize(25);
+  text('Press ENTER to Play', width/2, 400);
+  textSize(15);
+  text('Eat 25 bugs in 10 seconds to win!', width/2, 430);
   fill(0);
-  image(Bug1, 515, 200, 170, 100);
-  image(Bug2, 315, 200, 170, 100);
-  image(Bug3, 115, 200, 170, 100);
-  image(SpaceShip, 306, 500, 190, 200);
+  image(Bug1, width/2-100, 200, 170, 100);
+  image(Bug2, width/2, 200, 170, 100);
+  image(Bug3, width/2+100, 200, 170, 100);
+  image(SpaceShip, width/2, 500, 190, 200);
 
 }
 
@@ -256,10 +257,10 @@ function winState() {
   rect(400, 400, 1100, 100);
   fill(255, 252, 71);
   textSize(50);
-  text('YOU WIN!', 270, 400);
+  text('YOU WIN!', width/2, 400);
   fill(255, 252, 71);
   textSize(20);
-  text('Pres "Esc" to return to Menu', 260, 430);
+  text('Pres "Esc" to return to Menu', width/2, 430, width-50, height-100);
   fill(255, 0, 0);
 
 
@@ -270,10 +271,10 @@ function loseState() {
 
   fill(0, 255, 0);
   textSize(50);
-  text('YOU LOSE', 250, 400);
+  text('YOU LOSE', width/2, 400);
   fill(0, 255, 0);
   textSize(20);
-  text('Pres "Esc" to return to Menu', 253, 450);
+  text('Pres "Esc" to return to Menu', width/2, 430, width-50, height-100);
 
 }
 

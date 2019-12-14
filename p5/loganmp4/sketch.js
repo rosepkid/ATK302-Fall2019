@@ -239,12 +239,12 @@ function gameState() {
   text('Bugs eaten: ' + bugsEaten, 600, 780)
 
   // for debugging accelerometer
-  fill('white');
-  textSize(15);
-
-  text("alpha: " + alpha, 25, 50);
-  text("beta: " + beta, 25, 70);
-  text("gamma: " + gamma, 25, 90);
+  // fill('white');
+  // textSize(15);
+  //
+  // text("alpha: " + alpha, 25, 50);
+  // text("beta: " + beta, 25, 70);
+  // text("gamma: " + gamma, 25, 90);
   // text("x = " + x, 25, 150); // .toFixed means just show (x) decimal places
   // text("y = " + y, 25, 170);
   // text("z = " + z, 25, 190);

@@ -169,7 +169,7 @@ function splashScreen() {
   background(255, 0, 0);
   //textFont("Hallows", 40);
   textSize(70);
-  text('SPACEBUGZ1', 200, 145)
+  text('SPACEBUGZ', 200, 145)
   rect(400, 400, 450, 110)
   fill(255, 252, 71)
   textSize(45);
@@ -240,9 +240,12 @@ function gameState() {
   fill('white');
   textSize(15);
 
-  text("x = " + x, 25, 150); // .toFixed means just show (x) decimal places
-  text("y = " + y, 25, 170);
-  text("z = " + z, 25, 190);
+  text("alpha: " + alpha, 25, 50);
+  text("beta: " + beta, 25, 70);
+  text("gamma: " + gamma, 25, 90);
+  // text("x = " + x, 25, 150); // .toFixed means just show (x) decimal places
+  // text("y = " + y, 25, 170);
+  // text("z = " + z, 25, 190);
 
 } //endgamestate
 
